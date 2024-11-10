@@ -1,5 +1,6 @@
 package leonam.tech.mouseandkeyboardserver.configs;
 
+import leonam.tech.mouseandkeyboardserver.socket.SocketMouse;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
@@ -9,14 +10,14 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 @EnableWebSocket
 public class WebSocketConfig implements WebSocketConfigurer {
 
-    private final MouseWebSocketHandler mouseWebSocketHandler;
+    private final SocketMouse socketMouse;
 
-    public WebSocketConfig(MouseWebSocketHandler mouseWebSocketHandler) {
-        this.mouseWebSocketHandler = mouseWebSocketHandler;
+    public WebSocketConfig(SocketMouse socketMouse) {
+        this.socketMouse = socketMouse;
     }
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(mouseWebSocketHandler, "/ws").setAllowedOrigins("*");
+        registry.addHandler(socketMouse, "/ws").setAllowedOrigins("*");
     }
 }
