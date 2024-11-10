@@ -43,7 +43,6 @@ public class SocketMouse extends TextWebSocketHandler {
             case "/puxaCoordenadas":
                 puxaCoordenadas(session);
 
-
         }
 
     }
