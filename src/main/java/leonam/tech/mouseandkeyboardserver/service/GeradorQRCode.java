@@ -1,17 +1,16 @@
 package leonam.tech.mouseandkeyboardserver.service;
 
-import com.google.zxing.BarcodeFormat; // Importa o formato do código de barras (QR Code)
-import com.google.zxing.EncodeHintType; // Importa tipos de dicas para codificação (ex. margem)
-import com.google.zxing.MultiFormatWriter; // Importa a classe responsável por gerar códigos de barras
-import com.google.zxing.WriterException; // Exceção lançada se houver erro ao gerar o código
-import com.google.zxing.common.BitMatrix; // Representação interna do QR Code como uma matriz de bits
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
 
-import java.util.Hashtable; // Usada para armazenar as dicas (hints) para a geração do QR Code
+import java.util.Hashtable;
 
 public class GeradorQRCode {
 
     public static void gerarQRCode(String dados) {
-        // Cria um objeto Hashtable para armazenar as dicas (hints) para o gerador de QR Code
         Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
         hints.put(EncodeHintType.MARGIN, 5);
         hints.put(EncodeHintType.QR_COMPACT, true);
@@ -46,7 +45,6 @@ public class GeradorQRCode {
                 System.out.println(); // Ao final de cada linha, pula para a próxima linha
             }
         } catch (WriterException e) {
-            // Captura erros na geração do QR Code e imprime a mensagem de erro
             System.err.println("Erro ao gerar o QR Code: " + e.getMessage());
         }
     }
