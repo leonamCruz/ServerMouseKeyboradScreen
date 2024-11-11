@@ -15,7 +15,6 @@ public class MouseAndKeyboardServerApplication {
         SpringApplication.run(MouseAndKeyboardServerApplication.class, args);
     }
 
-
     @Bean
     public Robot iniciaRobot() throws AWTException {
         if (GraphicsEnvironment.isHeadless()) {
