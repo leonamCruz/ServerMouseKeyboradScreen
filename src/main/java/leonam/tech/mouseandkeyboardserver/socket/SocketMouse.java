@@ -28,7 +28,6 @@ public class SocketMouse extends TextWebSocketHandler {
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws IOException {
         String payload = message.getPayload();
-        System.out.println("Mensagem recebida: " + payload);
 
         switch (retornaComando(payload)) {
             case "/moveMouse":
